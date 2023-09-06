@@ -7,16 +7,28 @@ import './App.css';
 
 function App() {
   /**
-   * First Animation
-   * gsap.to
+   * Animation
    */
   const animation = () => {
-    gsap.to('.vite', {
-      x: 100, // assume that you want px
-      y: '7.5rem',
-      rotation: '45deg',
-      duration: 2
-    });
+    // gsap.to('.vite', {
+    //   x: 100, // assume that you want px
+    //   y: '7.5rem',
+    //   rotation: '45deg',
+    //   duration: 2
+    // });
+
+    gsap.fromTo(
+      '.vite',
+      {
+        // from
+        autoAlpha: 0 // visibility & opacity
+      },
+      {
+        // to
+        autoAlpha: 1,
+        duration: 2
+      }
+    );
   };
 
   /**
