@@ -20,21 +20,39 @@ function App() {
     gsap.fromTo(
       '.vite',
       {
-        // from
+        /**
+         * from
+         */
         autoAlpha: 0, // visibility & opacity
         x: 100
       },
       {
-        // to
+        /**
+         * to
+         */
         autoAlpha: 1,
         x: 0,
         duration: 2,
+
+        /**
+         * Easing
+         */
         // ease: 'power3.inOut'
         // ease: 'sine' // the default is .out
         // ease: 'none' // shortened keyword
         // ease: 'elastic(1, 0.5)'
         // ease: 'steps(5)'
-        ease: 'bounce'
+        ease: 'bounce',
+
+        /**
+         * Utility Props
+         */
+        // paused: true,
+        delay: 1,
+        repeat: 2,
+        // repeat: -1 // infinity
+        repeatDelay: 1,
+        yoyo: true
       }
     );
   };
