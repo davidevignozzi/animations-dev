@@ -6,6 +6,26 @@ import viteLogo from '/vite.svg';
 import './App.css';
 
 function App() {
+  /**
+   * First Animation
+   * gsap.to
+   */
+  const animation = () => {
+    gsap.to('.vite', {
+      x: 100, // assume that you want px
+      y: '7.5rem',
+      rotation: '45deg',
+      duration: 2
+    });
+  };
+
+  /**
+   * Call animation at the first render
+   */
+  useEffect(() => {
+    animation();
+  }, []);
+
   return (
     <>
       <div>
