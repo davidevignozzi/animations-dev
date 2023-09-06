@@ -21,12 +21,20 @@ function App() {
       '.vite',
       {
         // from
-        autoAlpha: 0 // visibility & opacity
+        autoAlpha: 0, // visibility & opacity
+        x: 100
       },
       {
         // to
         autoAlpha: 1,
-        duration: 2
+        x: 0,
+        duration: 2,
+        // ease: 'power3.inOut'
+        // ease: 'sine' // the default is .out
+        // ease: 'none' // shortened keyword
+        // ease: 'elastic(1, 0.5)'
+        // ease: 'steps(5)'
+        ease: 'bounce'
       }
     );
   };
