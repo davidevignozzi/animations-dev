@@ -115,12 +115,33 @@ function App() {
   };
 
   /**
+   * TWEEN
+   */
+  gsap.registerEffect({
+    name: 'imageAnimation',
+    effect: (targets, config) => {
+      return gsap.to(targets, {
+        duration: config.duration,
+        y: 200,
+        scale: 1.4
+      });
+    },
+    default: { duration: 2 }
+  });
+
+  /**
    * Call animation at the first render
    */
   useEffect(() => {
     // animation();
     // keyframeAnimation();
-    triggerEventsAnimation();
+    // triggerEventsAnimation();
+
+    /**
+     * Call the Registered animation
+     */
+    gsap.effects.imageAnimation('.react', { duration: 5 });
+    gsap.effects.imageAnimation('.img3', { duration: 5 });
   }, []);
 
   return (
