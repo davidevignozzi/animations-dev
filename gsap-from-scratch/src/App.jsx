@@ -16,45 +16,63 @@ function App() {
     //   rotation: '45deg',
     //   duration: 2
     // });
+    // gsap.fromTo(
+    //   '.vite',
+    //   {
+    //     /**
+    //      * from
+    //      */
+    //     autoAlpha: 0, // visibility & opacity
+    //     x: 100
+    //   },
+    //   {
+    //     /**
+    //      * to
+    //      */
+    //     autoAlpha: 1,
+    //     x: 0,
+    //     duration: 2,
+    //     /**
+    //      * Easing
+    //      */
+    //     // ease: 'power3.inOut'
+    //     // ease: 'sine' // the default is .out
+    //     // ease: 'none' // shortened keyword
+    //     // ease: 'elastic(1, 0.5)'
+    //     // ease: 'steps(5)'
+    //     ease: 'bounce',
+    //     /**
+    //      * Utility Props
+    //      */
+    //     // paused: true,
+    //     delay: 1,
+    //     repeat: 2,
+    //     // repeat: -1 // infinity
+    //     repeatDelay: 1,
+    //     yoyo: true
+    //   }
+    // );
 
-    gsap.fromTo(
-      '.vite',
-      {
-        /**
-         * from
-         */
-        autoAlpha: 0, // visibility & opacity
-        x: 100
-      },
-      {
-        /**
-         * to
-         */
-        autoAlpha: 1,
-        x: 0,
-        duration: 2,
+    /**
+     * To have a delay between multiple elements use stagger
+     */
+    gsap.to('.logo', {
+      opacity: 1,
+      y: 0,
+      ease: 'power4',
+      duration: 2,
 
-        /**
-         * Easing
-         */
-        // ease: 'power3.inOut'
-        // ease: 'sine' // the default is .out
-        // ease: 'none' // shortened keyword
-        // ease: 'elastic(1, 0.5)'
-        // ease: 'steps(5)'
-        ease: 'bounce',
+      // delay bwtween elements
+      // stagger: 0.2
 
-        /**
-         * Utility Props
-         */
-        // paused: true,
-        delay: 1,
-        repeat: 2,
-        // repeat: -1 // infinity
-        repeatDelay: 1,
-        yoyo: true
+      stagger: {
+        // delay bwtween elements
+        each: 0.5,
+
+        // choose from where will start the animation
+        from: 'end'
       }
-    );
+    });
   };
 
   /**
