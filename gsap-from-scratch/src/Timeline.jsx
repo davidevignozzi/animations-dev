@@ -52,25 +52,46 @@ const Timeline = () => {
      */
     const ctx = gsap.context(() => {
       TL.current = gsap
-        .timeline()
-        .to(image1Ref.current, {
-          autoAlpha: 1,
-          duration: 1
+        .timeline({
+          /**
+           * Properties and methods of the timeline
+           */
+          defaults: {
+            duration: 1,
+            ease: 'power4.out'
+          },
+
+          repeat: -1, // <- infinity
+          yoyo: true,
+
+          onStart: () => {
+            console.log('Start');
+          },
+          onRepeat: () => {
+            console.log('Repeat');
+          },
+          onComplete: () => {
+            console.log('Complete');
+          }
         })
+
+        .to(image1Ref.current, {
+          autoAlpha: 1
+        })
+
         .to(
           image2Ref.current,
           {
-            autoAlpha: 1,
-            duration: 1
+            autoAlpha: 1
           },
           // Position Parameter
           '-=0.75' //<-- Will start at the 0.75 second in the timeline
         )
+
         .to(
           image3Ref.current,
           {
-            autoAlpha: 1,
-            duration: 1
+            autoAlpha: 1
           },
           // Position Parameter
           3 //<-- Will wait 3 second before run
