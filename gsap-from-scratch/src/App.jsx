@@ -8,55 +8,77 @@ import Buttons from './Buttons';
 
 function App() {
   /**
-   * Animation
+   * GSAP T0
    */
-  const animation = () => {
-    // gsap.to('.vite', {
-    //   x: 100, // assume that you want px
-    //   y: '7.5rem',
-    //   rotation: '45deg',
-    //   duration: 2
-    // });
-    // gsap.fromTo(
-    //   '.vite',
-    //   {
-    //     /**
-    //      * from
-    //      */
-    //     autoAlpha: 0, // visibility & opacity
-    //     x: 100
-    //   },
-    //   {
-    //     /**
-    //      * to
-    //      */
-    //     autoAlpha: 1,
-    //     x: 0,
-    //     duration: 2,
-    //     /**
-    //      * Easing
-    //      */
-    //     // ease: 'power3.inOut'
-    //     // ease: 'sine' // the default is .out
-    //     // ease: 'none' // shortened keyword
-    //     // ease: 'elastic(1, 0.5)'
-    //     // ease: 'steps(5)'
-    //     ease: 'bounce',
-    //     /**
-    //      * Utility Props
-    //      */
-    //     // paused: true,
-    //     delay: 1,
-    //     repeat: 2,
-    //     // repeat: -1 // infinity
-    //     repeatDelay: 1,
-    //     yoyo: true
-    //   }
-    // );
+  const gsapTo = () => {
+    gsap.to('.vite', {
+      x: 100, // assume that you want px
+      y: '7.5rem',
+      rotation: '45deg',
+      duration: 2
+    });
+  };
 
-    /**
-     * To have a delay between multiple elements use stagger
-     */
+  /**
+   * GSAP FROMTO
+   */
+  const gsapFromTo = () => {
+    gsap.fromTo(
+      '.vite',
+      {
+        /**
+         * from
+         */
+        autoAlpha: 0, // visibility & opacity
+        x: 100
+      },
+      {
+        /**
+         * to
+         */
+        autoAlpha: 1,
+        x: 0,
+        duration: 2
+      }
+    );
+  };
+
+  /**
+   * GSAP EASEING
+   */
+  const gsapEasing = () => {
+    gsap.to('.vite', {
+      x: 100,
+
+      // ease: 'power3.inOut'
+      // ease: 'sine' // the default is .out
+      // ease: 'none' // shortened keyword
+      // ease: 'elastic(1, 0.5)'
+      // ease: 'steps(5)'
+      ease: 'bounce'
+    });
+  };
+
+  /**
+   * GSAP UTILITY PROPS
+   */
+  const gsapUtilityProps = () => {
+    gsap.to('.vite', {
+      x: 100,
+      // paused: true,
+      delay: 1,
+      repeat: 2,
+      // repeat: -1 // infinity
+      repeatDelay: 1,
+      yoyo: true
+    });
+  };
+
+  /**
+   * GSAP STRAGGER
+   * To have a delay between multiple elements
+   */
+  const gsapStragger = () => {
     gsap.to('.logo', {
       opacity: 1,
       y: 0,
@@ -77,7 +99,7 @@ function App() {
   };
 
   /**
-   * Keyframe animation
+   * GSAP KEYFRAME
    */
   const keyframeAnimation = () => {
     gsap.to('.img3', {
@@ -90,7 +112,7 @@ function App() {
   };
 
   /**
-   * Trigger events callbacks
+   * GSAP Trigger events callbacks
    */
   const triggerEventsAnimation = () => {
     gsap.to('.img3', {
@@ -130,17 +152,43 @@ function App() {
   });
 
   /**
+   * GSAP SET
+   * Set default value with gsap
+   */
+  const gsapSet = () => {
+    gsap.set('.img3', { opacity: 0 });
+  };
+
+  /**
+   * GSAP UTILITY METHODS
+   */
+  const gsapUtilityMethods = () => {
+    const utilityMethodsTween = gsap.to('.img3', { y: 200, paused: true });
+
+    // utilityMethodsTween.kill();
+    // utilityMethodsTween.delay(1);
+    // utilityMethodsTween.duration(5);
+
+    return setTimeout(() => {
+      // utilityMethodsTween.resume();
+      utilityMethodsTween.seek(2.5);
+      utilityMethodsTween.play();
+    }, 2000);
+  };
+
+  /**
    * Call animation at the first render
    */
   useEffect(() => {
-    /**
-     * Set default value with gsap
-     */
-    // gsap.set('.img3', { opacity: 0 });
-    //__
-    // animation();
+    // gsapTo()
+    // gsapFromTo()
+    // gsapEasing()
+    // gsapUtilityProps();
+    // gsapStragger();
     // keyframeAnimation();
     // triggerEventsAnimation();
+    // gsapSet();
+    // gsapUtilityMethods();
     //__
     /**
      * Call the Registered animation
@@ -148,21 +196,6 @@ function App() {
     // gsap.effects.imageAnimation('.react', { duration: 5 });
     // gsap.effects.imageAnimation('.img3', { duration: 5 });
     //__
-
-    /**
-     * Utility Methods
-     */
-    const utilityMethodsTween = gsap.to('.img3', { y: 200, paused: true });
-
-    // utilityMethodsTween.kill();
-    // utilityMethodsTween.delay(1);
-    // utilityMethodsTween.duration(5);
-
-    setTimeout(() => {
-      // utilityMethodsTween.resume();
-      utilityMethodsTween.seek(2.5);
-      utilityMethodsTween.play();
-    }, 2000);
   }, []);
 
   return (
