@@ -136,17 +136,33 @@ function App() {
     /**
      * Set default value with gsap
      */
-    gsap.set('.img3', { opacity: 0 });
-
+    // gsap.set('.img3', { opacity: 0 });
+    //__
     // animation();
     // keyframeAnimation();
     // triggerEventsAnimation();
-
+    //__
     /**
      * Call the Registered animation
      */
-    gsap.effects.imageAnimation('.react', { duration: 5 });
+    // gsap.effects.imageAnimation('.react', { duration: 5 });
     // gsap.effects.imageAnimation('.img3', { duration: 5 });
+    //__
+
+    /**
+     * Utility Methods
+     */
+    const utilityMethodsTween = gsap.to('.img3', { y: 200, paused: true });
+
+    // utilityMethodsTween.kill();
+    // utilityMethodsTween.delay(1);
+    // utilityMethodsTween.duration(5);
+
+    setTimeout(() => {
+      // utilityMethodsTween.resume();
+      utilityMethodsTween.seek(2.5);
+      utilityMethodsTween.play();
+    }, 2000);
   }, []);
 
   return (
