@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
+import Buttons from './Buttons';
 
 function App() {
   /**
@@ -92,6 +93,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+
+      <Buttons />
     </>
   );
 }
