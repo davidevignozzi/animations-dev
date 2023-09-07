@@ -5,6 +5,7 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import Buttons from './Buttons';
+import Timeline from './Timeline';
 
 function App() {
   /**
@@ -200,7 +201,7 @@ function App() {
 
   return (
     <>
-      <div>
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo vite" alt="Vite logo" />
         </a>
@@ -210,9 +211,10 @@ function App() {
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo vite img3" alt="Vite logo" />
         </a>
-      </div>
+      </div> */}
 
       {/* <Buttons /> */}
+      <Timeline />
     </>
   );
 }
