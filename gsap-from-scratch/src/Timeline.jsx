@@ -19,13 +19,13 @@ import viteLogo from '/vite.svg';
  *      'img2', {
  *          autoAlpha: 1,
  *          duration: 1
- *      }
+ *      }, '-=0.75'
  * )
  * .to(
  *      'img3', {
  *          autoAlpha: 1,
  *          duration: 1
- *      }
+ *      }, 3
  * )
  */
 
@@ -57,14 +57,24 @@ const Timeline = () => {
           autoAlpha: 1,
           duration: 1
         })
-        .to(image2Ref.current, {
-          autoAlpha: 1,
-          duration: 1
-        })
-        .to(image3Ref.current, {
-          autoAlpha: 1,
-          duration: 1
-        });
+        .to(
+          image2Ref.current,
+          {
+            autoAlpha: 1,
+            duration: 1
+          },
+          // Position Parameter
+          '-=0.75' //<-- Will start at the 0.75 second in the timeline
+        )
+        .to(
+          image3Ref.current,
+          {
+            autoAlpha: 1,
+            duration: 1
+          },
+          // Position Parameter
+          3 //<-- Will wait 3 second before run
+        );
     }, containerRef); // <- IMPORTANT Scopes Selector => Will be the container or root element
 
     return () => {
