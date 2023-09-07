@@ -76,11 +76,22 @@ function App() {
     });
   };
 
+  const keyframeAnimation = () => {
+    gsap.to('.img3', {
+      keyframes: [
+        { duration: 0.3, x: 100 },
+        { duration: 0.3, y: 100 },
+        { duration: 0.3, x: 200 }
+      ]
+    });
+  };
+
   /**
    * Call animation at the first render
    */
   useEffect(() => {
-    animation();
+    // animation();
+    keyframeAnimation();
   }, []);
 
   return (
@@ -92,9 +103,12 @@ function App() {
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo vite img3" alt="Vite logo" />
+        </a>
       </div>
 
-      <Buttons />
+      {/* <Buttons /> */}
     </>
   );
 }
