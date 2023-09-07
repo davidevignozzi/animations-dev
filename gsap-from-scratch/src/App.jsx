@@ -133,6 +133,11 @@ function App() {
    * Call animation at the first render
    */
   useEffect(() => {
+    /**
+     * Set default value with gsap
+     */
+    gsap.set('.img3', { opacity: 0 });
+
     // animation();
     // keyframeAnimation();
     // triggerEventsAnimation();
@@ -141,7 +146,7 @@ function App() {
      * Call the Registered animation
      */
     gsap.effects.imageAnimation('.react', { duration: 5 });
-    gsap.effects.imageAnimation('.img3', { duration: 5 });
+    // gsap.effects.imageAnimation('.img3', { duration: 5 });
   }, []);
 
   return (
