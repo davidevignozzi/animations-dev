@@ -76,6 +76,9 @@ function App() {
     });
   };
 
+  /**
+   * Keyframe animation
+   */
   const keyframeAnimation = () => {
     gsap.to('.img3', {
       keyframes: [
@@ -87,11 +90,37 @@ function App() {
   };
 
   /**
+   * Trigger events callbacks
+   */
+  const triggerEventsAnimation = () => {
+    gsap.to('.img3', {
+      y: 100,
+      duration: 1,
+      repeat: 1,
+
+      // Events
+      onStart: () => {
+        console.log('Start');
+      },
+      onUpdate: () => {
+        console.log('Update');
+      },
+      onComplete: () => {
+        console.log('Complete');
+      },
+      onRepeat: () => {
+        console.log('Repeat');
+      }
+    });
+  };
+
+  /**
    * Call animation at the first render
    */
   useEffect(() => {
     // animation();
-    keyframeAnimation();
+    // keyframeAnimation();
+    triggerEventsAnimation();
   }, []);
 
   return (
