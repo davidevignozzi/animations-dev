@@ -6,7 +6,24 @@ import viteLogo from '/vite.svg';
 
 /** VANILLA JS
  *
- * const tl = gsap.timeline
+ * const tl = gsap.timeline(
+ *      defaults: {
+ *
+ *      }
+ *
+ *      repeat: -1, // <- infinity
+ *      yoyo: true,
+ *
+ *      onStart: () => {
+ *         console.log('Start');
+ *      },
+ *      onRepeat: () => {
+ *         console.log('Repeat');
+ *      },
+ *      onComplete: () => {
+ *         console.log('Complete');
+ *      }
+ * )
  *
  * tl
  * .to(
