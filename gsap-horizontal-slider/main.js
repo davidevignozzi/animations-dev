@@ -27,30 +27,6 @@ function animRight() {
 }
 
 /**
- * on click on next button
- */
-btnRight.addEventListener('click', () => {
-  /**
-   * animation to make the user know that the slider is finished
-   */
-  if (index === slides.length - 1) {
-    gsap.to(container, {
-      keyframes: [
-        { duration: 0.1, x: -4 },
-        { duration: 0.1, x: 4 },
-        { duration: 0.1, x: -4 },
-        { duration: 0.1, x: 0 }
-      ]
-    });
-
-    return;
-  }
-
-  index++;
-  animRight();
-});
-
-/**
  * prev animation
  */
 function animLeft() {
@@ -62,25 +38,61 @@ function animLeft() {
 }
 
 /**
+ * negation
+ *
+ * animation when the user is at the edge of the slider
+ * and tries to go beyond it
+ *
+ */
+function negation() {
+  gsap.to(container, {
+    keyframes: [
+      { duration: 0.1, x: -4 },
+      { duration: 0.1, x: 4 },
+      { duration: 0.1, x: -4 },
+      { duration: 0.1, x: 0 }
+    ]
+  });
+}
+
+function handleDirection(direction) {
+  /**
+   * on click on next button
+   */
+  if (direction === 'next') {
+    if (index === slides.length - 1) {
+      negation();
+      return;
+    }
+
+    index++;
+    animRight();
+  }
+
+  /**
+   * on click on prev button
+   */
+  if (direction === 'prev') {
+    if (index === 0) {
+      negation();
+      return;
+    }
+
+    animLeft();
+    index--;
+  }
+}
+
+/**
+ * on click on next button
+ */
+btnRight.addEventListener('click', () => {
+  handleDirection('next');
+});
+
+/**
  * on click on prev button
  */
 btnLeft.addEventListener('click', () => {
-  /**
-   * animation to make the user know that the slider is finished
-   */
-  if (index === 0) {
-    gsap.to(container, {
-      keyframes: [
-        { duration: 0.1, x: -4 },
-        { duration: 0.1, x: 4 },
-        { duration: 0.1, x: -4 },
-        { duration: 0.1, x: 0 }
-      ]
-    });
-
-    return;
-  }
-
-  animLeft();
-  index--;
+  handleDirection('prev');
 });
