@@ -1,3 +1,3 @@
-# animations-dev
+# GSAP Udemy Course
 
-In this repo I keep all the case studies, exercises, and projects that allowed me to improve animations and transitions so as to create stunning web experiences
+In this repo I keep the projects I made during the course regarding gsap on udemy
